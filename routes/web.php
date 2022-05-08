@@ -32,6 +32,8 @@ Route::controller(BibliotecaController::class)->group(function(){
 
    Route::get('autores/{autor}/actualizarAutor','actualizarAutores')->name('actualizarAutor');
     Route::patch('actualizarAutor/{autor}','update')->name('updateAutor');
+
+    Route::delete('autores/{autor}/eleminarAutor', 'destroy')->name('destroyAutor');
 });
 
 Auth::routes();

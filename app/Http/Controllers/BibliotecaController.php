@@ -12,11 +12,7 @@ use App\Http\Requests\UpdateLibroRequest;
 
 class BibliotecaController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+   
     public function index()
     {
          $libros = Libro::paginate(10);
@@ -145,8 +141,11 @@ class BibliotecaController extends Controller
      * @param  \App\Models\Libro  $libro
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Libro $libro)
+    public function destroy(Autore $autor)
     {
-        //
+      $autor->delete();
+         return redirect('autores');
+
     }
+
 }

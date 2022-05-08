@@ -30,7 +30,13 @@
                 <td class="border-2 p-2 bg-gray-100">{{$autor->sexo}}</td>
                 <td class="border-2 p-2 bg-gray-100">{{$autor->edad}}</td>
                 <td><a class="bg-green-200 m-auto w-30 h-10 p-2 rounded-md" href="{{route('actualizarAutor', $autor)}}">Editar</a></td>
-                <td><a class="bg-red-200 m-auto w-30 h-10 p-2 rounded-md" href="{{route('actualizarAutor', $autor)}}">Borrar</a></td>
+                <td>
+                    <form action="{{route('destroyAutor', $autor)}}" method="POST">
+                    @csrf @method('DELETE')
+                    <input class="bg-red-200 m-auto w-30 h-10 p-2 rounded-md" type="submit" value="Eliminar">
+                    </form>
+                </td>
+
             </tr>
 
             @endforeach
