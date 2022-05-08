@@ -3,11 +3,12 @@
     <table class="border-collapse m-auto table-auto ">
         <thead>
             <tr>
+                <th class="border-2 bg-green-50 p-2">Id</th>
                 <th class="border-2 bg-green-50 p-2">Titulo</th>
                 <th class="border-2 bg-green-50 p-2">Categoría</th>
                 <th class="border-2 bg-green-50 p-2">Id del autor</th>
                 <th class="border-2 bg-green-50 p-2">Descripción</th>
-                <th class="border-2 bg-green-50 p-2">Id</th>
+
             </tr>
         </thead>
         <tbody>

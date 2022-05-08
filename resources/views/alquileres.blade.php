@@ -14,10 +14,10 @@
         <tbody>
             @foreach ($alquileres as $alquiler )
             <tr>
-                <td class="border-2 p-2 bg-gray-100">{{$alquiler->alquiler_id}}</td>
-                <td class="border-2 p-2 bg-gray-100">{{$alquiler->fechprestamo}}</td>
-                <td class="border-2 p-2 bg-gray-100">{{$alquiler->fechdevolucion}}</td>
-                <td class="border-2 p-2 bg-gray-100">{{$alquiler->nombreusuario}}</td>
+                <td class="border-2 p-2 bg-gray-100">{{$alquiler->id}}</td>
+                <td class="border-2 p-2 bg-gray-100">{{$alquiler->fechaPrestamo}}</td>
+                <td class="border-2 p-2 bg-gray-100">{{$alquiler->fechaDevolucion}}</td>
+                <td class="border-2 p-2 bg-gray-100">{{$alquiler->name}}</td>
                 <td class="border-2 p-2 bg-gray-100">{{$alquiler->telefono}}</td>
                 <td class="border-2 p-2 bg-gray-100">{{$alquiler->titulo}}</td>
             </tr>
@@ -29,7 +29,7 @@
 
     </table>
 <div >
-
+    {{ $alquileres->links() }}
 </div>
 
 @endsection

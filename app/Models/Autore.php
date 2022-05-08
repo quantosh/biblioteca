@@ -5,15 +5,16 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Alquilere extends Model
+class Autore extends Model
 {
     use HasFactory;
 
-    public function user(){
-        return $this->belongsTo('App\Models\User');
-    }
+    protected $fillable =[
+       'nombre','apellidos', 'nacionalidad', 'sexo', 'edad'
+    ];
 
     public function libro(){
-        return $this->belongsTo('App\Models\Libro');
+
+       return $this->hasMany('App\Models\Libro');
     }
 }
