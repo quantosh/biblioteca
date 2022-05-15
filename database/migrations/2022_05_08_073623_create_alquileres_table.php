@@ -18,7 +18,7 @@ return new class extends Migration
             $table->unsignedBigInteger('codLibro');
             $table->unsignedBigInteger('codUsuario');
             $table->date('fechaPrestamo');
-            $table->date('fechaDevolución');
+            $table->date('fechaDevolucion');
             $table->timestamps();
 
              $table->foreign('codLibro')->references('id')->on('libros')->onDelete('cascade');

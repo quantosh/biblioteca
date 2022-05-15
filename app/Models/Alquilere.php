@@ -10,7 +10,7 @@ class Alquilere extends Model
     use HasFactory;
 
     protected $fillable =[
-       'codLibro','codUsuario', 'fechaPrestamo', 'fechaDevolución'
+       'codLibro','codUsuario', 'fechaPrestamo', 'fechaDevolucion'
     ];
 
     public function user(){

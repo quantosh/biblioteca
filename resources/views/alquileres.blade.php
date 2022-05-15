@@ -30,13 +30,13 @@
                 <td class="border-2 p-2 bg-gray-100">{{$alquiler->codUsuario}}</td>
                 <td class="border-2 p-2 bg-gray-100">{{$alquiler->fechaPrestamo}}</td>
                 <td class="border-2 p-2 bg-gray-100">{{$alquiler->fechaDevolucion}}</td>
-                 <td><a class="bg-green-200 m-auto w-30 h-10 p-2 rounded-md" href="{{route('actualizarAlquiler', $alquiler)}}">Editar</a></td>
+                <!-- <td><a class="bg-green-200 m-auto w-30 h-10 p-2 rounded-md" href="{{route('actualizarAlquiler', $alquiler)}}">Editar</a></td>
                 <td>
                     <form action="{{route('destroyAlquiler', $alquiler)}}" method="POST">
                     @csrf @method('DELETE')
                     <input class="bg-red-200 m-auto w-30 h-10 p-2 rounded-md" type="submit" value="Eliminar">
                     </form>
-                </td>
+                </td>-->
 
 
 
