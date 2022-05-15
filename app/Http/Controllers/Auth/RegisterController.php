@@ -29,17 +29,17 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    //protected $redirectTo = RouteServiceProvider::HOME;
+    protected $redirectTo = RouteServiceProvider::HOME;
 
     /**
      * Create a new controller instance.
      *
      * @return void
      */
-    public function __construct()
+    /*public function __construct()
     {
-       // $this->middleware('guest');
-    }
+       $this->middleware('guest');
+    }*/
 
     /**
      * Get a validator for an incoming registration request.
@@ -71,6 +71,7 @@ class RegisterController extends Controller
             'telefono' => $data['telefono'],
             'password' => Hash::make($data['password']),
         ]);
-        return redirect()->route('home');
+        //return redirect()->route('usuarios');
+        return ('de puta madre');
     }
 }

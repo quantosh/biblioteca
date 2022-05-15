@@ -70,16 +70,18 @@ class BibliotecaController extends Controller
     }
 
      public function actualizarLibros(Libro $libro){
-
+        $autores = Autore::all();
         return view('actualizarLibros', [
-            'libro'=>$libro
-        ]);
+            'libro'=>$libro,
+
+        ], compact('autores'));
     }
 
      public function actualizarAlquiler(Alquilere $alquiler){
 
         return view('actualizarAlquileres', [
             'alquiler'=>$alquiler
+
         ]);
     }
 
@@ -196,6 +198,13 @@ class BibliotecaController extends Controller
     {
       $alquiler->delete();
          return redirect('alquileres');
+
+    }
+
+    public function destroyUsuarios(User $usuarios)
+    {
+      $usuarios->delete();
+         return redirect('usuarios');
 
     }
 

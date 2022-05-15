@@ -15,9 +15,9 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-/*Route::get('/', function () {
-    return view('inicio');
-});*/
+Route::get('/login', function () {
+    return view('auth.login');
+});
 
 Route::controller(BibliotecaController::class)->group(function(){
     Route::get('/', 'index')->name('index');
@@ -43,16 +43,18 @@ Route::controller(BibliotecaController::class)->group(function(){
     Route::patch('actualizarAutor/{autor}','update')->name('updateAutor');
 
     Route::get('libros/{libro}/actualizarLibro','actualizarLibros')->name('actualizarLibros');
-    Route::patch('actualizarAutor/{autor}','updateLibro')->name('updateLibro');
+    Route::patch('actualizarLibro/{libro}','updateLibro')->name('updateLibro');
 
    Route::get('alquileres/{alquiler}/actualizarAlquiler','actualizarAlquiler')->name('actualizarAlquiler');
     Route::patch('actualizarAlquiler/{alquiler}','updateAlquiler')->name('updateAlquiler');
 
-    Route::delete('autores/{autor}/eleminarAutor', 'destroy')->name('destroyAutor');
+    Route::delete('autores/{autor}/eliminarAutor', 'destroy')->name('destroyAutor');
 
-    Route::delete('libros/{libro}/eleminarLibro', 'destroyLibro')->name('destroyLibro');
+    Route::delete('libros/{libro}/eliminarLibro', 'destroyLibro')->name('destroyLibro');
 
-     Route::delete('alquileres/{alquiler}/eleminarAlquiler', 'destroyAlquiler')->name('destroyAlquiler');
+     Route::delete('alquileres/{alquiler}/eliminarAlquiler', 'destroyAlquiler')->name('destroyAlquiler');
+
+     Route::delete('usuarios/{usuario}/eliminarUsuario', 'destroyUsuarios')->name('destroyUsuarios');
 });
 
 Auth::routes();
