@@ -12,11 +12,10 @@ use App\Http\Requests\UpdateLibroRequest;
 
 class BibliotecaController extends Controller
 {
-   
+
     public function index()
     {
-         $libros = Libro::paginate(10);
-        return view('libros', compact('libros'));
+        return view('home');
     }
 
 
@@ -40,12 +39,7 @@ class BibliotecaController extends Controller
 
     public function listarAlquileres()
     {
-         $alquileres = DB::table('alquileres')
-                    //Alquilere::paginate(10)
-                    ->join('libros', 'alquileres.codLibro', '=','libros.id')
-                    ->join('users', 'alquileres.codUsuario', '=','users.id')
-                    ->select('alquileres.id', 'alquileres.fechaPrestamo', 'alquileres.fechaDevolución', 'users.name', 'users.telefono', 'libros.titulo' )
-                    ->get();
+        $alquileres = Alquilere::paginate(10);
         return view('alquileres', compact('alquileres'));
     }
     public function crearAutores(){
@@ -53,10 +47,39 @@ class BibliotecaController extends Controller
         return view('crearAutores');
     }
 
+    public function crearLibro(){
+        $autores = Autore::all();
+        return view('crearlibros', compact('autores'));
+    }
+
+    public function crearAlquileres(){
+        $usuarios = User::all();
+        $libros = Libro::all();
+        return view('crearAlquileres', compact('usuarios'), compact('libros'));
+    }
+
+    public function crearUsuarios(){
+        return view('auth.register');
+    }
+
     public function actualizarAutores(Autore $autor){
 
         return view('actualizarAutores', [
             'autor'=>$autor
+        ]);
+    }
+
+     public function actualizarLibros(Libro $libro){
+
+        return view('actualizarLibros', [
+            'libro'=>$libro
+        ]);
+    }
+
+     public function actualizarAlquiler(Alquilere $alquiler){
+
+        return view('actualizarAlquileres', [
+            'alquiler'=>$alquiler
         ]);
     }
 
@@ -81,46 +104,39 @@ class BibliotecaController extends Controller
            return redirect()->route('autores');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \App\Http\Requests\StoreLibroRequest  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(StoreLibroRequest $request)
+     public function createLibro()
     {
-        //
+        Libro::create(
+            [
+
+                'titulo'=> request('titulo'),
+                'categoria'=> request('categoria'),
+                'autor_id'=> request('autor_id'),
+                'descripcion'=> request('descripcion'),
+
+
+            ]
+            );
+           return redirect()->route('libros');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Libro  $libro
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Libro $libro)
+     public function createAlquiler()
     {
-        //
+        Alquilere::create(
+            [
+
+                'codLibro'=> request('codLibro'),
+                'codUsuario'=> request('codUsuario'),
+                'fechaPrestamo'=> request('fechaPrestamo'),
+                'fechaDevolucion'=> request('fechaDevolucion'),
+
+
+            ]
+            );
+           return redirect()->route('alquileres');
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Libro  $libro
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Libro $libro)
-    {
-        //
-    }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \App\Http\Requests\UpdateLibroRequest  $request
-     * @param  \App\Models\Libro  $libro
-     * @return \Illuminate\Http\Response
-     */
     public function update(Autore $autor)
     {
        $autor->update(
@@ -135,16 +151,51 @@ class BibliotecaController extends Controller
            return redirect()->route('autores');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Libro  $libro
-     * @return \Illuminate\Http\Response
-     */
+     public function updateLibro(Libro $libro)
+    {
+       $libro->update(
+           [
+               'titulo'=> request('titulo'),
+                'categoria'=> request('categoria'),
+                'autor_id'=> request('autor_id'),
+                'descripcion'=> request('descripcion'),
+           ]
+           );
+           return redirect()->route('libros');
+    }
+
+    public function updateAlquiler(Alquilere $alquiler)
+    {
+       $alquiler->update(
+           [
+                'codLibro'=> request('codLibro'),
+                'codUsuario'=> request('codUsuario'),
+                'fechaPrestamo'=> request('fechaPrestamo'),
+                'fechaDevolucion'=> request('fechaDevolucion'),
+           ]
+           );
+           return redirect()->route('alquileres');
+    }
+
+
     public function destroy(Autore $autor)
     {
       $autor->delete();
          return redirect('autores');
+
+    }
+
+    public function destroyLibro(Libro $libro)
+    {
+      $libro->delete();
+         return redirect('libros');
+
+    }
+
+    public function destroyAlquiler(Alquilere $alquiler)
+    {
+      $alquiler->delete();
+         return redirect('alquileres');
 
     }
 

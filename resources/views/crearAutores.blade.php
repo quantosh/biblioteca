@@ -28,8 +28,14 @@
      <label class="w-20" >Nacionalidad</label>
     <input class="border-2 w-full" type="text"name="nacionalidad" required>
 
-     <label class="w-20" >Sexo</label>
-    <input class="border-2 w-full" type="text"name="sexo" required>
+    <p>Sexo</p>
+
+     <label class="w-20" >Hombre</label>
+    <!--<input class="border-2 w-full" type="text"name="sexo" required>-->
+    <input type="radio" name="sexo" value="Hombre" id="">
+    <label class="w-20" >Mujer</label>
+    <input type="radio" name="sexo" value="Mujer" id=""><br>
+
 
      <label class="w-20" >Edad</label>
     <input class="border-2 w-full" type="text"name="edad" required>

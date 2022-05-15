@@ -30,10 +30,29 @@ Route::controller(BibliotecaController::class)->group(function(){
     Route::get('autores/crearAutor','crearAutores')->name('crearAutor');
     Route::post('crearAutor','create')->name('añadirAutor');
 
+    Route::get('libros/crearLibro','crearLibro')->name('crearLibro');
+    Route::post('crearLibro','createLibro')->name('añadirLibro');
+
+    Route::get('alquileres/crearAlquiler','crearAlquileres')->name('crearAlquiler');
+    Route::post('crearAlquiler','createAlquiler')->name('añadirAlquiler');
+
+    Route::get('usuarios/crearUsuarios','crearUsuarios')->name('crearUsuarios');
+
+
    Route::get('autores/{autor}/actualizarAutor','actualizarAutores')->name('actualizarAutor');
     Route::patch('actualizarAutor/{autor}','update')->name('updateAutor');
 
+    Route::get('libros/{libro}/actualizarLibro','actualizarLibros')->name('actualizarLibros');
+    Route::patch('actualizarAutor/{autor}','updateLibro')->name('updateLibro');
+
+   Route::get('alquileres/{alquiler}/actualizarAlquiler','actualizarAlquiler')->name('actualizarAlquiler');
+    Route::patch('actualizarAlquiler/{alquiler}','updateAlquiler')->name('updateAlquiler');
+
     Route::delete('autores/{autor}/eleminarAutor', 'destroy')->name('destroyAutor');
+
+    Route::delete('libros/{libro}/eleminarLibro', 'destroyLibro')->name('destroyLibro');
+
+     Route::delete('alquileres/{alquiler}/eleminarAlquiler', 'destroyAlquiler')->name('destroyAlquiler');
 });
 
 Auth::routes();

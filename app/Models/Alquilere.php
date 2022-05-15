@@ -9,6 +9,10 @@ class Alquilere extends Model
 {
     use HasFactory;
 
+    protected $fillable =[
+       'codLibro','codUsuario', 'fechaPrestamo', 'fechaDevolución'
+    ];
+
     public function user(){
         return $this->belongsTo('App\Models\User');
     }
