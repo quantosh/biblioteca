@@ -13,6 +13,12 @@ use App\Http\Requests\UpdateLibroRequest;
 class BibliotecaController extends Controller
 {
 
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
         return view('home');

@@ -1,13 +1,11 @@
 @extends('layauds.plantilla')
 
 @section('cuerpo')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
+<div class="m-auto w-1/4">
 
-                <div class="w-2/4 m-auto">
-                    <form method="POST" action="{{ route('register') }}" class="bg-gray-100 shadow-md rounded px-8 pt-6 pb-8 mb-4  m-auto">
+
+                <div class="">
+                    <form method="POST" action="{{ route('register') }}" class=" bg-red-50 shadow-2xl rounded-xl px-8 pt-6 pb-8 mb-4   ">
                         @csrf
 
                         <div class="row mb-3">
@@ -73,7 +71,7 @@
                             </div>
                         </div>
 
-                        <div class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-24">
+                        <div class="bg-red-400 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-24">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
                                     {{ __('Registrar') }}
@@ -83,7 +81,5 @@
                     </form>
                 </div>
             </div>
-        </div>
-    </div>
-</div>
+
 @endsection

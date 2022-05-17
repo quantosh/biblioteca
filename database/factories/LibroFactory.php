@@ -17,7 +17,10 @@ class LibroFactory extends Factory
     public function definition()
     {
         return [
-            //
+          'titulo'=>$this->faker->word(3),
+          'categoria'=>$this->faker->word(),
+          'autor_id'=>$this->faker->numberBetween(1, 20),
+          'descripcion'=>$this->faker->text()
         ];
     }
 }
