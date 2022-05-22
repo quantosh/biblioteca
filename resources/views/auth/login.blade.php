@@ -54,11 +54,11 @@
                                 <button type="submit" class="bg-red-400 hover:bg-red-700  font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
                                     {{ __('Iniciar sesión') }}
                                 </button>
-                               <!--<a class="hover:text-red-900" href="{{ route('register') }}">{{ __('Regístrate') }}</a>--><br>
+                               <a class="hover:text-red-900" href="{{ route('register') }}">{{ __('Regístrate') }}</a><br>
 
                                 @if (Route::has('password.request'))
                                     <a class="inline-block align-baseline font-bold text-sm text-red-500 hover:text-red-800" href="{{ route('password.request') }}">
-                                       <!-- {{ __('¿Olvidaste tu contraseña?') }}-->
+                                        {{ __('¿Olvidaste tu contraseña?') }}
                                     </a>
                                 @endif
                             </div>

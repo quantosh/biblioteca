@@ -16,11 +16,15 @@ class AutoreFactory extends Factory
      */
     public function definition()
     {
+
+        $gender = $this->faker->randomElement(['Hombre', 'Mujer']);
         return [
-            'nombre' =>$this->faker->firstName($gender = 'Hombre' | 'mujer'),
-            'apellidos'=>$this->faker->name($gender = 'Hombre' | 'mujer'),
+
+
+            'nombre' =>$this->faker->firstName($gender ),
+            'apellidos'=>$this->faker->name($gender ),
             'nacionalidad'=>$this->faker->country(),
-            'sexo'=>$this->faker->word(),
+            'sexo'=>$gender,
             'edad'=>$this->faker->numberBetween(18, 82)
         ];
     }

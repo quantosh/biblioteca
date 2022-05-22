@@ -15,14 +15,28 @@
      <label class="w-20" >Nacionalidad</label>
     <input class="border-2 w-full" type="text"name="nacionalidad" value="{{$autor->nacionalidad}}">
 
-     <label class="w-20" >Sexo</label>
-    <input class="border-2 w-full" type="text"name="sexo" value="{{$autor->sexo}}">
-
-     <label class="w-20" >Edad</label>
-    <input class="border-2 w-full" type="text"name="edad" value="{{$autor->edad}}">
+     <p>Sexo</p>
 
 
-    <input class="w-40 my-4 h-10 border-2" type="submit" value="Añadir"name="boton">
+
+    @if ($autor->sexo == 'Hombre')
+        <label class="w-20" >Hombre</label>
+        <input type="radio" name="sexo" value="Hombre" id="" checked>
+        <label class="w-20" >Mujer</label>
+        <input type="radio" name="sexo" value="Mujer" id=""><br>
+    @else
+        <label class="w-20" >Hombre</label>
+        <input type="radio" name="sexo" value="Hombre" id="" >
+        <label class="w-20" >Mujer</label>
+        <input type="radio" name="sexo" value="Mujer" id="" checked><br>
+
+        @endif
+
+        <label class="w-20" >Edad</label>
+        <input class="border-2 w-full" type="text"name="edad" value="{{$autor->edad}}">
+
+
+        <input class="w-40 my-4 h-10 border-2" type="submit" value="Añadir"name="boton">
 
 
     </form>
