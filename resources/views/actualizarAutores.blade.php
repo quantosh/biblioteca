@@ -4,6 +4,7 @@
 
     <h1 class="text-center text-3xl py-8">Datos del autor</h1>
     <div class="m-auto flex justify-center border-2 w-1/2 bg-red-200">
+
     <form class="w-1/2 "  action="{{route ('updateAutor', $autor)}}" method="post">
          @csrf @method('PATCH')
     <label class="w-20" >Nombre</label>
@@ -16,9 +17,6 @@
     <input class="border-2 w-full" type="text"name="nacionalidad" value="{{$autor->nacionalidad}}">
 
      <p>Sexo</p>
-
-
-
     @if ($autor->sexo == 'Hombre')
         <label class="w-20" >Hombre</label>
         <input type="radio" name="sexo" value="Hombre" id="" checked>
@@ -37,9 +35,8 @@
 
 
         <input class="w-40 my-4 h-10 border-2" type="submit" value="Añadir"name="boton">
-
-
     </form>
+
     </div>
 
 

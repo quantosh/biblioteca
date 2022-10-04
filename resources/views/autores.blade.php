@@ -1,4 +1,11 @@
 @extends('layauds.plantilla')
+
+@section('head')
+
+
+@endsection
+
+
 @section('cuerpo')
 
     <div class="w-full grid grid-cols-4 gap-3 justify-center">
@@ -31,9 +38,11 @@
                 <td class="border-2 p-2 bg-gray-100">{{$autor->edad}}</td>
                 <td><a class="bg-green-200 m-auto w-30 h-10 p-2 rounded-md" href="{{route('actualizarAutor', $autor)}}">Editar</a></td>
                 <td>
-                    <form action="{{route('destroyAutor', $autor)}}" method="POST">
+
+
+                    <form action="{{route('destroyAutor', $autor)}}" method="POST" id="eliminar">
                     @csrf @method('DELETE')
-                    <input class="bg-red-200 m-auto w-30 h-10 p-2 rounded-md" type="submit" value="Eliminar">
+                    <input class="bg-red-200 m-auto w-30 h-10 p-2 rounded-md" type="submit"  value="Eliminar">
                     </form>
                 </td>
 
@@ -52,5 +61,7 @@
 <div >
     {{ $autores->links() }}
 </div>
+
+
 
 @endsection
